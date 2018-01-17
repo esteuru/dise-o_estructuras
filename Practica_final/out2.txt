@@ -1,0 +1,662 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# FORMAT per a fer el test:                                         #
+# nomMetode, valorArgument1, valorArgument2, valorArgumentN         #
+# Admet String's, tipus de dades primitius i dates (java.util.Date) #
+# en format dd-MM-yyyy HH:mm:ss                                     #
+# No suporta metodes homonims amb el mateix nombre de parametres    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# EP2 test
+
+# ERROR
+users()
+ERROR: There are no users
+
+addUser(000000A, Joan, Lopez)
+void
+addUser(111111A, Philip, McCarthy)
+void
+addUser(222222B, Jooooooohn, Petit)
+void
+addUser(333333C, Peter, Esteban)
+void
+addUser(444444D, Xavi, Casajoana)
+void
+addUser(555555E, Pol, Izquierdo)
+void
+addUser(666666X, Jordi, Salvat)
+void
+
+
+
+
+users()
+id: 000000A name: Joan surname: Lopez 
+id: 111111A name: Philip surname: McCarthy 
+id: 222222B name: Jooooooohn surname: Petit 
+id: 333333C name: Peter surname: Esteban 
+id: 444444D name: Xavi surname: Casajoana 
+id: 555555E name: Pol surname: Izquierdo 
+id: 666666X name: Jordi surname: Salvat 
+
+# ERROR
+movies()
+ERROR: There are no movies
+
+addMovie(M6, Star Wars: Episode VII – The Force Awakens, 135, J. J. Abrams)
+void
+addMovie(M2, Star Wars: Episode V - The Empire Strikes Back, 124, Irvin Kershner)
+void
+addMovie(M4, Superman, 143, Richard Donner)
+void
+addMovie(M7, Star Wars VIII – The Last Jedi, 152, Rian Johnson)
+void
+addMovie(M5, Gone with the Wind, 221, Victor Fleming)
+void
+addMovie(M3, Star Wars: Episode VI - Return of the Jedi, 124, Richard Marquand)
+void
+addMovie(M1, Star Wars: Episode IV - A New Hope, 121, George Lucas)
+void
+
+movies()
+idMovie:M6
+title: Star Wars: Episode VII – The Force Awakens
+director: J. J. Abrams
+duration: 135
+views: 0
+rating: 0
+	
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 0
+rating: 0
+	
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 0
+rating: 0
+	
+idMovie:M7
+title: Star Wars VIII – The Last Jedi
+director: Rian Johnson
+duration: 152
+views: 0
+rating: 0
+	
+idMovie:M5
+title: Gone with the Wind
+director: Victor Fleming
+duration: 221
+views: 0
+rating: 0
+	
+idMovie:M3
+title: Star Wars: Episode VI - Return of the Jedi
+director: Richard Marquand
+duration: 124
+views: 0
+rating: 0
+	
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 0
+rating: 0
+	
+
+watchMovie(000000A, M5)
+void
+
+# ERROR
+getUser(XXXXXX)
+ERROR: User not found
+
+getUser(000000A)
+id: 000000A name: Joan surname: Lopez 
+watching movie: 
+	idMovie:M5
+	title: Gone with the Wind
+	director: Victor Fleming
+	duration: 221
+	views: 0
+	rating: 0
+	
+
+
+watchMovie(000000A, M1)
+void
+
+getUser(000000A)
+id: 000000A name: Joan surname: Lopez 
+watching movie: 
+	idMovie:M1
+	title: Star Wars: Episode IV - A New Hope
+	director: George Lucas
+	duration: 121
+	views: 0
+	rating: 0
+	
+
+
+watchMovie(111111A, M2)
+void
+
+getUser(111111A)
+id: 111111A name: Philip surname: McCarthy 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 0
+	rating: 0
+	
+
+
+watchMovie(222222B, M2)
+void
+
+watchMovie(555555E, M5)
+void
+watchMovie(555555E, M2)
+void
+getUser(555555E)
+id: 555555E name: Pol surname: Izquierdo 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 0
+	rating: 0
+	
+
+
+watchMovie(666666X, M4)
+void
+
+
+endMovie(000000A, 26-10-2017 20:00:00)
+void
+endMovie(111111A, 26-10-2017 20:00:00)
+void
+endMovie(222222B, 26-10-2017 20:00:00)
+void
+endMovie(555555E, 26-10-2017 20:00:00)
+void
+endMovie(666666X, 27-10-2017 10:00:00)
+void
+
+watchMovie(111111A, M4)
+void
+endMovie(111111A, 01-10-2017 10:00:00)
+void
+
+
+
+topMovies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 0
+	
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+rating: 0
+	
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+rating: 0
+	
+
+# ERROR
+pauseMovie(333333C, 50)
+ERROR: User isn't watching any movie
+
+watchMovie(333333C, M2)
+void
+pauseMovie(333333C, 50)
+void
+
+watchMovie(333333C, M7)
+void
+pauseMovie(333333C, 25)
+void
+
+watchMovie(333333C, M4)
+void
+pauseMovie(333333C, 45)
+void
+
+watchMovie(333333C, M1)
+void
+pauseMovie(333333C, 29)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movies: 
+	movie: M2 - Star Wars: Episode V - The Empire Strikes Back, minute: 50
+	movie: M7 - Star Wars VIII – The Last Jedi, minute: 25
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+
+
+# ERROR
+pauseMovie(333333C, 60)
+ERROR: User isn't watching any movie
+
+
+# ERROR
+resumeMovie(XXXXXX, M2)
+ERROR: User not found
+
+# ERROR
+resumeMovie(333333C, XXX)
+ERROR: No paused movie
+
+resumeMovie(333333C, M2)
+void
+
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 3
+	rating: 0
+	
+
+paused movies: 
+	movie: M7 - Star Wars VIII – The Last Jedi, minute: 25
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+
+
+# ERROR
+pauseMovie(333333C, 200)
+ERROR: Duration exceeded
+
+pauseMovie(333333C, 60)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movies: 
+	movie: M7 - Star Wars VIII – The Last Jedi, minute: 25
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+	movie: M2 - Star Wars: Episode V - The Empire Strikes Back, minute: 60
+
+
+# ERROR
+endMovie(333333C, 31-10-2017 10:00:00)
+ERROR: User isn't watching any movie
+
+resumeMovie(333333C, M7)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+watching movie: 
+	idMovie:M7
+	title: Star Wars VIII – The Last Jedi
+	director: Rian Johnson
+	duration: 152
+	views: 0
+	rating: 0
+	
+
+paused movies: 
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+	movie: M2 - Star Wars: Episode V - The Empire Strikes Back, minute: 60
+
+
+endMovie(333333C, 31-10-2017 10:00:00)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movies: 
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+	movie: M2 - Star Wars: Episode V - The Empire Strikes Back, minute: 60
+
+watched movies: 
+	M7 Star Wars VIII – The Last Jedi 31-10-2017 10:00:00
+
+
+
+topMovies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 0
+	
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+rating: 0
+	
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+rating: 0
+	
+idMovie:M7
+title: Star Wars VIII – The Last Jedi
+director: Rian Johnson
+duration: 152
+views: 1
+rating: 0
+	
+
+watchMovie(111111A, M5)
+void
+endMovie(111111A, 07-10-2017 10:00:00)
+void
+
+# Expected M4, M5, M2
+getUserWatchedMovies(111111A)
+M4 Superman 01-10-2017 10:00:00
+M5 Gone with the Wind 07-10-2017 10:00:00
+M2 Star Wars: Episode V - The Empire Strikes Back 26-10-2017 20:00:00
+
+getUser(111111A)
+id: 111111A name: Philip surname: McCarthy 
+watched movies: 
+	M4 Superman 01-10-2017 10:00:00
+	M5 Gone with the Wind 07-10-2017 10:00:00
+	M2 Star Wars: Episode V - The Empire Strikes Back 26-10-2017 20:00:00
+
+
+getUser(222222B)
+id: 222222B name: Jooooooohn surname: Petit 
+watched movies: 
+	M2 Star Wars: Episode V - The Empire Strikes Back 26-10-2017 20:00:00
+
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movies: 
+	movie: M4 - Superman, minute: 45
+	movie: M1 - Star Wars: Episode IV - A New Hope, minute: 29
+	movie: M2 - Star Wars: Episode V - The Empire Strikes Back, minute: 60
+
+watched movies: 
+	M7 Star Wars VIII – The Last Jedi 31-10-2017 10:00:00
+
+
+getUser(555555E)
+id: 555555E name: Pol surname: Izquierdo 
+watched movies: 
+	M2 Star Wars: Episode V - The Empire Strikes Back 26-10-2017 20:00:00
+
+
+getUser(666666X)
+id: 666666X name: Jordi surname: Salvat 
+watched movies: 
+	M4 Superman 27-10-2017 10:00:00
+
+
+
+# ERROR data
+getWatchedMovie(111111A, 31-12-2018 10:00:00)
+ERROR: There are no whatches movies
+
+# Expected: M2
+getWatchedMovie(111111A, 26-10-2017 20:00:00)
+M2 Star Wars: Episode V - The Empire Strikes Back 26-10-2017 20:00:00
+
+# Expected: M5
+getWatchedMovie(111111A, 07-10-2017 10:00:00)
+M5 Gone with the Wind 07-10-2017 10:00:00
+
+# Expected: M4
+getWatchedMovie(111111A, 01-10-2017 10:00:00)
+M4 Superman 01-10-2017 10:00:00
+
+# Expected M7
+getWatchedMovie(333333C, 31-10-2017 10:00:00)
+M7 Star Wars VIII – The Last Jedi 31-10-2017 10:00:00
+
+rateMovie(M2, 85)
+void
+getMovie(M2)
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 85
+	
+
+rateMovie(M2, 90)
+void
+getMovie(M2)
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 87
+	
+
+rateMovie(M2, 95)
+void
+getMovie(M2)
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 89
+	
+
+rateMovie(M2, 70)
+void
+getMovie(M2)
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 84
+	
+
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 84
+	
+
+# ERROR
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 84
+	
+
+rateMovie(M5, 70)
+void
+rateMovie(M4, 27)
+void
+
+rateMovie(M2, 90)
+void
+
+rateMovie(M1, 10)
+void
+
+bestRated()
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+rating: 10
+	
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 86
+	
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 86
+	
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 86
+	
+
+# ERROR
+bestRated()
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+rating: 27
+	
+
+
+rateMovie(M2, 98)
+void
+rateMovie(M4, 28)
+void
+rateMovie(M5, 77)
+void
+rateMovie(M1, 100)
+void
+
+movies()
+idMovie:M6
+title: Star Wars: Episode VII – The Force Awakens
+director: J. J. Abrams
+duration: 135
+views: 0
+rating: 0
+	
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 98
+	
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+rating: 28
+	
+idMovie:M7
+title: Star Wars VIII – The Last Jedi
+director: Rian Johnson
+duration: 152
+views: 1
+rating: 0
+	
+idMovie:M5
+title: Gone with the Wind
+director: Victor Fleming
+duration: 221
+views: 1
+rating: 73
+	
+idMovie:M3
+title: Star Wars: Episode VI - Return of the Jedi
+director: Richard Marquand
+duration: 124
+views: 0
+rating: 0
+	
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+rating: 100
+	
+
+bestRated()
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+rating: 100
+	
+bestRated()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+rating: 98
+	
+bestRated()
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+rating: 28
+	
+bestRated()
+idMovie:M5
+title: Gone with the Wind
+director: Victor Fleming
+duration: 221
+views: 1
+rating: 73
+	
+
+
+
+
+
+
+

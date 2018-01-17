@@ -1,0 +1,304 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# FORMAT per a fer el test:                                         #
+# nomMetode, valorArgument1, valorArgument2, valorArgumentN         #
+# Admet String's, tipus de dades primitius i dates (java.util.Date) #
+# en format dd-MM-yyyy HH:mm:ss                                     #
+# No suporta metodes homonims amb el mateix nombre de parametres    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# EP2 test
+
+# ERROR
+users()
+ERROR: There are no users
+
+addUser(000000A, Joan, Lopez)
+void
+addUser(111111A, Philip, McCarthy)
+void
+addUser(222222B, Jooooooohn, Petit)
+void
+addUser(333333C, Peter, Esteban)
+void
+addUser(444444D, Xavi, Casajoana)
+void
+addUser(555555E, Pol, Izquierdo)
+void
+addUser(666666X, Jordi, Salvat)
+void
+
+
+
+
+users()
+id: 000000A name: Joan surname: Lopez 
+id: 111111A name: Philip surname: McCarthy 
+id: 222222B name: Jooooooohn surname: Petit 
+id: 333333C name: Peter surname: Esteban 
+id: 444444D name: Xavi surname: Casajoana 
+id: 555555E name: Pol surname: Izquierdo 
+id: 666666X name: Jordi surname: Salvat 
+
+# ERROR
+movies()
+ERROR: There are no movies
+
+addMovie(M2, Star Wars: Episode V - The Empire Strikes Back, 124, Irvin Kershner)
+void
+addMovie(M4, Superman, 143, Richard Donner)
+void
+addMovie(M5, Gone with the Wind, 221, Victor Fleming)
+void
+addMovie(M3, Star Wars: Episode VI - Return of the Jedi, 124, Richard Marquand)
+void
+addMovie(M1, Star Wars: Episode IV - A New Hope, 121, George Lucas)
+void
+
+movies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 0
+
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 0
+
+idMovie:M5
+title: Gone with the Wind
+director: Victor Fleming
+duration: 221
+views: 0
+
+idMovie:M3
+title: Star Wars: Episode VI - Return of the Jedi
+director: Richard Marquand
+duration: 124
+views: 0
+
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 0
+
+
+watchMovie(000000A, M5)
+void
+
+# ERROR
+getUser(XXXXXX)
+ERROR: User not found
+
+getUser(000000A)
+id: 000000A name: Joan surname: Lopez 
+watching movie: 
+	idMovie:M5
+	title: Gone with the Wind
+	director: Victor Fleming
+	duration: 221
+	views: 0
+
+
+
+watchMovie(000000A, M1)
+void
+
+getUser(000000A)
+id: 000000A name: Joan surname: Lopez 
+watching movie: 
+	idMovie:M1
+	title: Star Wars: Episode IV - A New Hope
+	director: George Lucas
+	duration: 121
+	views: 0
+
+
+
+watchMovie(111111A, M2)
+void
+
+getUser(111111A)
+id: 111111A name: Philip surname: McCarthy 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 0
+
+
+
+watchMovie(222222B, M2)
+void
+
+watchMovie(555555E, M5)
+void
+watchMovie(555555E, M2)
+void
+getUser(555555E)
+id: 555555E name: Pol surname: Izquierdo 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 0
+
+
+
+watchMovie(666666X, M4)
+void
+
+
+endMovie(000000A, 26-10-2017 20:00:00)
+void
+endMovie(111111A, 26-10-2017 20:00:00)
+void
+endMovie(222222B, 26-10-2017 20:00:00)
+void
+endMovie(555555E, 26-10-2017 20:00:00)
+void
+endMovie(666666X, 27-10-2017 10:00:00)
+void
+
+watchMovie(111111A, M4)
+void
+endMovie(111111A, 01-10-2017 10:00:00)
+void
+
+
+
+# Expected: M2: 3, M4: 2, M1: 1
+topMovies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 3
+
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+
+
+# ERROR
+pauseMovie(333333C, 50)
+ERROR: User isn't watching any movie
+
+watchMovie(333333C, M2)
+void
+
+pauseMovie(333333C, 50)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movie: 
+	movie: Star Wars: Episode V - The Empire Strikes Back, minute: 50
+
+
+# ERROR
+pauseMovie(333333C, 60)
+ERROR: User isn't watching any movie
+
+resumeMovie(333333C)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 3
+
+
+
+# ERROR
+pauseMovie(333333C, 200)
+ERROR: Duration exceeded
+
+pauseMovie(333333C, 60)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+paused movie: 
+	movie: Star Wars: Episode V - The Empire Strikes Back, minute: 60
+
+
+# ERROR
+endMovie(333333C, 31-10-2017 10:00:00)
+ERROR: User isn't watching any movie
+
+resumeMovie(333333C)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+watching movie: 
+	idMovie:M2
+	title: Star Wars: Episode V - The Empire Strikes Back
+	director: Irvin Kershner
+	duration: 124
+	views: 3
+
+
+
+endMovie(333333C, 31-10-2017 10:00:00)
+void
+
+getUser(333333C)
+id: 333333C name: Peter surname: Esteban 
+
+
+# Expected: M2: 4, M4: 2, M1: 1
+topMovies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 4
+
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 2
+
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 1
+
+
+watchMovie(111111A, M5)
+void
+endMovie(111111A, 07-10-2017 10:00:00)
+void
+
+# Expected M4, M5, M2
+getUserWatchedMovies(111111A)
+M4 Superman Sun Oct 01 10:00:00 CEST 2017
+M5 Gone with the Wind Sat Oct 07 10:00:00 CEST 2017
+M2 Star Wars: Episode V - The Empire Strikes Back Thu Oct 26 20:00:00 CEST 2017
+
+
+
+
+
+

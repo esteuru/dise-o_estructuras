@@ -1,0 +1,105 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# FORMAT per a fer el test:                                         #
+# nomMetode, valorArgument1, valorArgument2, valorArgumentN         #
+# Admet String's, tipus de dades primitius i dates (java.util.Date) #
+# en format dd-MM-yyyy HH:mm:ss                                     #
+# No suporta metodes homonims amb el mateix nombre de parametres    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# EP2 test
+
+# ERROR
+users()
+ERROR: There are no users
+
+addUser(000000A, Joan, Lopez)
+void
+addUser(111111A, Philip, McCarthy)
+void
+addUser(222222B, Jooooooohn, Petit)
+void
+addUser(333333C, Peter, Esteban)
+void
+addUser(444444D, Xavi, Casajoana)
+void
+addUser(555555E, Pol, Izquierdo)
+void
+addUser(666666X, Jordi, Salvat)
+void
+
+
+
+
+users()
+id: 000000A name: Joan surname: Lopez 
+id: 111111A name: Philip surname: McCarthy 
+id: 222222B name: Jooooooohn surname: Petit 
+id: 333333C name: Peter surname: Esteban 
+id: 444444D name: Xavi surname: Casajoana 
+id: 555555E name: Pol surname: Izquierdo 
+id: 666666X name: Jordi surname: Salvat 
+
+# ERROR
+movies()
+ERROR: There are no movies
+
+addMovie(M2, Star Wars: Episode V - The Empire Strikes Back, 124, Irvin Kershner)
+void
+addMovie(M4, Superman, 143, Richard Donner)
+void
+addMovie(M5, Gone with the Wind, 221, Victor Fleming)
+void
+addMovie(M3, Star Wars: Episode VI - Return of the Jedi, 124, Richard Marquand)
+void
+addMovie(M1, Star Wars: Episode IV - A New Hope, 121, George Lucas)
+void
+
+movies()
+idMovie:M2
+title: Star Wars: Episode V - The Empire Strikes Back
+director: Irvin Kershner
+duration: 124
+views: 0
+
+idMovie:M4
+title: Superman
+director: Richard Donner
+duration: 143
+views: 0
+
+idMovie:M5
+title: Gone with the Wind
+director: Victor Fleming
+duration: 221
+views: 0
+
+idMovie:M3
+title: Star Wars: Episode VI - Return of the Jedi
+director: Richard Marquand
+duration: 124
+views: 0
+
+idMovie:M1
+title: Star Wars: Episode IV - A New Hope
+director: George Lucas
+duration: 121
+views: 0
+
+
+watchMovie(000000A, M5)
+void
+
+# ERROR
+getUser(XXXXXX)
+ERROR: User not found
+
+getUser(000000A)
+id: 000000A name: Joan surname: Lopez 
+watching movie: 
+	idMovie:M5
+	title: Gone with the Wind
+	director: Victor Fleming
+	duration: 221
+	views: 0
+
+
